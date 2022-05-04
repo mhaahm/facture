@@ -1,0 +1,29 @@
+@layout('layout/base')
+@section('body')
+<h3 class="text-secondary">Gestion Raison social</h3>
+<hr class="col-md-12 mb-5"/>
+<form method="POST" action="{{ route('save_tva') }}">
+  <div class="row">
+  <div class="col-md-8 border-right">
+    <div class="row">
+      @!component('components/flash')
+    </div>
+    <input type="hidden" value="{{  tva? tva.id: '' }}" name="tva_id"/>
+    @!component('components/input',{
+      name: 'tva_pct',
+      type: 'number',
+      label: 'Tva Pct (%)',
+      col: 12,
+      value: tva? tva.tva_pct: 0
+    })
+  </div>
+  </div>
+  <div class="row">
+    <div class="mb-3 col-md-2">
+        <input type="submit" value="Enregistrer"  class="btn btn-outline-success"/>
+        <input type="reset" value="Annuler"  class="btn btn-outline-danger"/>
+    </div>
+  </div>
+</form>
+
+@end

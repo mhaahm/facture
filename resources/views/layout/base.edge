@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Management</title>
+  <link rel="shortcut icon" href="invoice.png">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+  @entryPointStyles('app')
+
+  @section('scripts')
+    @entryPointScripts('app')
+
+  @end
+  <style>
+    .border-right {
+        border-right: 1px solid #ddd;
+    }
+    a > svg {
+      width: 23px;
+      padding: 2px;
+      height: 19px!important;
+    }
+    .legend-rsaff {
+      background-color: honeydew;
+      border-radius: 5px;
+      border: solid 1px;
+      padding: 5px;
+    }
+
+    .fieldset-rsaff {
+      width: 100%;
+      background-color: cadetblue;
+      border: solid 1px!important;
+      border-radius: 8px;
+      padding: 10px!important;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <main>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="fa fa-home"></i>Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mr-5" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item px-4">
+              <a class="navbar-brand" aria-current="page" href="#"><i class="fa-solid fa-file-invoice-dollar"></i>Facture </a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="navbar-brand" href="#"> <i class="fa-solid fa-receipt"></i>  Devis</a>
+            </li>
+            <li class="nav-item dropdown px-4">
+              <a class="navbar-brand dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-gear"></i> Paramètres
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#"> <i class="fa-solid fa-person-military-pointing"></i> Client</a></li>
+                <li><a class="dropdown-item" href="{{ route('tva_list') }}"><i class="fa-solid fa-money-check-dollar"></i> TVA</a></li>
+                <li><a class="dropdown-item" href="{{ route('ursaff') }}"><i class="fa-solid fa-money-check-dollar"></i> Paramètre URSAFF</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{{ route('raison_social') }}"><i class="fa-solid fa-envelope"></i> Raison Sociale</a></li>
+                <li><a class="dropdown-item" href="{{ route('images') }}"><i class="fa-solid fa-image"></i> Images</a></li>
+                <li><a class="dropdown-item" href="{{ route('listModePaiement') }}"> <i class="fa-solid fa-cart-shopping"></i> Mode de Painement</a></li>
+                <li><a class="dropdown-item" href="#"> <i class="fa-brands fa-accusoft"></i> Valeur par défaut</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid pt-4 pb-4 bg-light">
+        @!section('body')
+    </div>
+  </main>
+</body>
+</html>

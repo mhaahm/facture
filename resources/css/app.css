@@ -1,0 +1,19 @@
+@import "~bootstrap/dist/bootstrap.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+.legend-rsaff {
+  background-color: honeydew;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px;
+}
+
+.fieldset-rsaff {
+  width: 49.09%;
+  background-color: cadetblue;
+  border: solid 1px!important;
+  border-radius: 8px;
+  padding: 10px!important;
+}
+
+

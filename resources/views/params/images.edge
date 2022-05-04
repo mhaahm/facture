@@ -1,0 +1,35 @@
+@layout('layout/base')
+@section('body')
+<div class="row">
+  @!component('components/input',{
+    type: 'file',
+    col: 6,
+    name: 'imgae_devis',
+    label: 'Image Devis'
+  })
+
+@!component('components/input',{
+  type: 'file',
+  col: 6,
+  name: 'imgae_facture',
+  label: 'Image Facture'
+})
+</div>
+<div class="row">
+@!component('components/input',{
+  type: 'file',
+  col: 6,
+  name: 'imgae_client',
+  label: 'Image Pour Fiche Client'
+})
+<div class="col-md-2 mt-4 pt-2">
+  <input type="button" value="Save" class="btn btn-outline-success"/>
+  <input type="reset" value="Reset" class="btn btn-outline-danger"/>
+</div>
+</div>
+<div>
+  <img src="..." class="rounded float-left img-fluid" alt="...">
+  <img src="..." class="rounded float-center img-fluid" alt="...">
+  <img src="..." class="rounded float-right img-fluid" alt="...">
+</div>
+@end

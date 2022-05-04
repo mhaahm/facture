@@ -1,0 +1,11 @@
+@if(flashMessages.has('success'))
+  <div class="alert alert-success alert-dismissible fade show col-md-10 pr-1" role="alert">
+   <strong> {{ flashMessages.get('success') }} </strong>
+  </div>
+
+ @elseif(flashMessages.has('error'))
+  <div class="alert alert-error alert-dismissible fade show col-md-10 pr-1" role="alert">
+    <strong>{{ flashMessages.get('error') }}</strong>
+  </div>
+@endif
+

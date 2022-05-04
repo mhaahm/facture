@@ -1,0 +1,87 @@
+@layout('layout/base')
+@section('body')
+<form method="POST" action="{{ route('saveUrsaf') }}">
+<div class="row">
+  <div class="col-md-6">
+      <div class="row">
+          <div class="form-group mb-3">
+            <label for="exampleFormControlSelect1">Fréquence de déclaration</label>
+            <select class="form-control" id="ursaff_frequency" name="ursaff_frequency" required>
+              <option value="d">Quotidien</option>
+              <option value="w">Semaine</option>
+              <option value="m">Mentuelle</option>
+              <option value="q">Trimesterielle</option>
+            </select>
+          </div>
+      </div>
+      <div class="row">
+        <div class="form-group mb-3">
+          <label for="exampleFormControlSelect1">Mode de calcul du CA</label>
+          <select class="form-control" name="mode_calcule" required>
+            <option value="a_facture">A partir de la date de la facture</option>
+            <option value="a_rule">A partir de la date du règlement</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  <div class="col-md-4">
+  <div class="form-group mt-4">
+    <label class="mb-2">Couleur1</label>
+    <input type="color" class="form-control" name="couleur1" required>
+    <label class="mb-2">Couleur2</label>
+    <input type="color" class="form-control"  name="couleur2" required>
+    <label class="mb-2">Couleur3</label>
+    <input type="color" class="form-control"  name="couleur3" required>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+  <fieldset class="border p-2 m-2 col-md-12 fieldset-rsaff">
+
+      <legend class="float-none w-auto legend-rsaff">Devis - Mentions bas de page </legend>
+      <div class="row">
+        <div class="form-group col-md-4 mb-3">
+          <label for="devis_droite">Zone Droite</label>
+          <textarea  name="devis_droite" class="form-control" required></textarea>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label for="devis_center">Zone Centre</label>
+          <textarea  name="devis_center" class="form-control" required></textarea>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label for="devis_gauche">Zone gauche</label>
+          <textarea  name="devis_gauche" class="form-control" required></textarea>
+        </div>
+    </div>
+  </fieldset>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <fieldset class="border p-2 m-2 col-md-12 fieldset-rsaff">
+          <legend class="float-none w-auto legend-rsaff">Facture - Mentions bas de page </legend>
+          <div class="row">
+            <div class="form-group col-md-4 mb-3">
+              <label for="facture_droite">Zone Droite</label>
+              <textarea  name="facture_droite" class="form-control" required></textarea>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+              <label for="facture_center">Zone Centre</label>
+              <textarea  name="facture_center" class="form-control" required></textarea>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+              <label for="facture_gauche">Zone gauche</label>
+              <textarea  name="facture_gauche" class="form-control" required></textarea>
+            </div>
+        </div>
+    </fieldset>
+  </div>
+  <div class="col-md-6 mt-5">
+      <button class="btn btn-outline-success" type="submit"> Save </button>
+      <button class="btn btn-outline-success" type="reset"> Reset </button>
+  </div>
+</div>
+</form>
+@end

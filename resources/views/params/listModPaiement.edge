@@ -1,0 +1,33 @@
+@layout('layout/base')
+@section('body')
+<h3 class="text-secondary">List Mode Paiement</h3>
+<hr class="col-md-12 mb-5"/>
+  <div class="row">
+    <div class="col-md-3 mb-2">
+      <a href="{{ route('modPaymemnt') }}" class="btn btn-outline-success">
+        <i class="fa-solid fa-plus"></i> Ajouter Mode de Paiement
+      </a>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col-md-8">
+    @!component('components/flash')
+  </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+    <ul class="list-group">
+      @each(payment in payments)
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ payment.mode_paiement_label }}
+        <span class="badge badge-primary badge-pill">
+          <a class="btn btn-outline-success" data-id="{{ payment.id }}"  href="{{ route('modPaymemnt') }}{{ payment.id }}/"><i class="fa-solid fa-pencil-square"></i>Edit</a>
+          <button class="btn btn-outline-danger"><i class="fa-solid fa-xmark"></i> Remove</button>
+        </span>
+      </li>
+      @end
+    </ul>
+    </div>
+  </div>
+@end

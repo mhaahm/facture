@@ -1,0 +1,120 @@
+@layout('layout/base')
+@section('scripts')
+   @super
+@end
+@section('body')
+<h3 class="text-secondary">Gestion Raison social</h3>
+<hr class="col-md-12 mb-5"/>
+<form method="POST" action="{{ route('saveRaisonSocial') }}">
+  <div class="row">
+  <div class="col-md-8 border-right">
+          <div class="row">
+            @!component('components/flash')
+          </div>
+          <input type="hidden" name="id" value="{{ raison_social_to_edit?raison_social_to_edit.id:'' }}">
+          @!component('components/input',{
+            name: 'name',
+            type: 'text',
+            label: 'Nom',
+            col: 12,
+            value: raison_social_to_edit?raison_social_to_edit.name:''
+          })
+          <div class="row">
+              @!component('components/input',{
+                name: 'adresse1',
+                type: 'text',
+                label: 'Adresse 1',
+                col: 3,
+                value: raison_social_to_edit?raison_social_to_edit.adresse1:''
+              })
+
+              @!component('components/input',{
+                name: 'adresse2',
+                type: 'text',
+                label: 'Adresse 2',
+                col: 3,
+                value: raison_social_to_edit?raison_social_to_edit.adresse2:''
+              })
+              @!component('components/input',{
+                name: 'code_postal',
+                type: 'text',
+                label: 'Code Postal',
+                col: 3,
+                value: raison_social_to_edit?raison_social_to_edit.code_postal:''
+              })
+
+              @!component('components/input',{
+                name: 'adresse_ville',
+                type: 'text',
+                label: 'Ville',
+                col: 3,
+                value: raison_social_to_edit?raison_social_to_edit.adresse_ville:''
+              })
+
+
+          </div>
+
+          <div class="row">
+            @!component('components/input',{
+              name: 'telephone',
+              type: 'text',
+              label: 'Téléphone',
+              col: 3,
+              value: raison_social_to_edit?raison_social_to_edit.telephone:''
+            })
+            @!component('components/input',{
+              name: 'website',
+              type: 'text',
+              label: 'Site Web',
+              col: 3,
+              value: raison_social_to_edit?raison_social_to_edit.website:''
+            })
+
+            @!component('components/input',{
+              name: 'mail',
+              type: 'text',
+              label: 'Mail',
+              col: 3,
+              value: raison_social_to_edit?raison_social_to_edit.mail:''
+            })
+
+            @!component('components/input',{
+              name: 'title',
+              type: 'text',
+              label: 'Titre',
+              col: 3,
+              value: raison_social_to_edit?raison_social_to_edit.title:''
+            })
+          </div>
+          <div class="row">
+            <div class="mb-3 col-md-2">
+              <input type="submit" value="Save" class="btn btn-outline-success"/>
+              <input type="reset" value="Reset" class="btn btn-outline-danger"/>
+            </div>
+          </div>
+  </div>
+</form>
+  <div class="col-md-4 mb-5">
+    <div class="jumbotron jumbotron-fluid">
+      <div>
+        <p class="">Nom: {{ raison_social.name }}</p>
+        <p class="">Adresse: {{
+        raison_social.adresse1+" "+
+        raison_social.adresse2+" "+
+        raison_social.code_postal+" "+
+        raison_social.adresse_ville
+        }}</p>
+        <p class="">Téléphone: {{ raison_social.telephone }}</p>
+        <p class="">Site web:  {{ raison_social.website }} </p>
+        <p class="">Email:  {{ raison_social.telephone }}</p>
+        <p class="">Titre:  {{ raison_social.mail }}</p>
+        <div class="pt-3">
+          <button class="btn btn-outline-info js-edit" data-raison-id="{{ raison_social.id }}">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+@end

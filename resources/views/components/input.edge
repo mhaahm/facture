@@ -1,0 +1,13 @@
+<div class="mb-3 col-md-{{ col }}">
+  <label for="{{ name }}" class="form-label">{{ label }}</label>
+  @if(type == 'textarea')
+    <textarea class="form-control" name="{{ name }}" id="{{ name }}">{{ value }}</textarea>
+  @else
+    <input type="{{ type }}" class="form-control {{ flashMessages.has(`errors.${name}`)?'is-invalid':'' }}" name="{{ name }}" value="{{ value }}">
+  @endif
+  @if(flashMessages.has(`errors.${name}`))
+    <div class="invalid-feedback">
+      {{ flashMessages.get(`errors.${name}`) }}
+    </div>
+  @endif
+</div>

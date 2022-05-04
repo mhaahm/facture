@@ -1,0 +1,29 @@
+@layout('layout/base')
+@section('body')
+<h3 class="text-secondary">Gestion Mode de Paiement</h3>
+<hr class="col-md-12 mb-5"/>
+<form method="POST" action="{{ route('savePaymentMode') }}">
+  <div class="row">
+  <div class="col-md-8 border-right">
+    <div class="row">
+      @!component('components/flash')
+    </div>
+    <input type="hidden" value="{{  modePaiement? modePaiement.id: '' }}" name="mode_paiement_id"/>
+    @!component('components/input',{
+      name: 'mode_paiement_label',
+      type: 'text',
+      label: 'Mode Paiement',
+      col: 12,
+      value: modePaiement? modePaiement.mode_paiement_label: ''
+    })
+  </div>
+  </div>
+  <div class="row">
+    <div class="mb-3 col-md-2">
+        <input type="submit" value="Enregistrer"  class="btn btn-outline-success"/>
+        <input type="reset" value="Annuler"  class="btn btn-outline-danger"/>
+    </div>
+  </div>
+</form>
+
+@end
